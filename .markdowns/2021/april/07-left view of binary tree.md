@@ -2,7 +2,7 @@
 
 ### Today - 07 April, 2021
 ### Ques  - [Left View of Binary Tree](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1)
-
+![](https://badgen.net/badge/Level/Easy/green)
 Given a Binary Tree, return Left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from Left side. The task is to complete the function leftView(), which accepts root of the tree as argument.
 
 Left view of following tree is 1 2 4 8.
@@ -15,7 +15,6 @@ Left view of following tree is 1 2 4 8.
     \
      8   
 
-![](https://badgen.net/badge/Level/Easy/green)
 
 ### Approach
 The approach works by systematically traversing the binary tree in a level-order fashion, ensuring that at each level, the leftmost node is added to the result vector. Here's how it unfolds:
