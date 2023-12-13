@@ -45,11 +45,12 @@ In summary, the algorithm uses a breadth-first search (BFS) strategy with a queu
 ### Time and Auxiliary Space Complexity
 
 - **Time Complexity            :**  `O(N)`, where N is the number of nodes in the binary tree.
+
                     - The algorithm performs a level-order traversal of the binary tree using a queue.
                     - In the worst case, each node is visited once.
+
 - **Auxiliary Space Complexity :**  `O(n)`, where n is the size of the queue.
 
-- **Explaination:**
                     - The space complexity is determined by the queue used for the level-order traversal.
                     - In the worst case, the queue may store all nodes at a particular level, and the maximum number of nodes at any level is the number of nodes in the last level of the binary tree (which can be roughly N/2 for a balanced binary tree).
                     - Therefore, the auxiliary space complexity is O(N/2), but in big O notation, it simplifies to O(N) as we focus on the dominant term.
