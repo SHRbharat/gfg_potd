@@ -1,8 +1,8 @@
 ## GFG Problem Of The Day
 
 ### Today - 13 December, 2023
-### Ques  - Consecutive 1's not allowed
-The problem can be found at the following link: [Question Link](https://www.geeksforgeeks.org/problems/consecutive-1s-not-allowed1912/1)
+### Ques  - [Consecutive 1's not allowed](https://www.geeksforgeeks.org/problems/consecutive-1s-not-allowed1912/1)
+The problem can be found at the following link: [Question Link]
 
 Given a positive integer N, count all possible distinct binary strings of length N such that there are no consecutive 1’s. Output your answer modulo 109 + 7.
 
@@ -49,9 +49,9 @@ public:
 
 I always encourage contributors to participate in the discussion forum for this repository.
 
-If you have a better solution or any queries / discussions related to the `Problem of the Day` solution, please visit our [discussion section](https://github.com/getlost01/gfg-potd/discussions). We welcome your input and aim to foster a collaborative learning environment.
+If you have a better solution or any queries / discussions related to the `Problem of the Day` solution, please visit our [discussion section](https://github.com/SHRbharat/gfg_potd/discussions). We welcome your input and aim to foster a collaborative learning environment.
 
-If you find this solution helpful, consider supporting us by giving a `⭐ star` to the [getlost01/gfg-potd](https://github.com/getlost01/gfg-potd) repository.
+If you find this solution helpful, consider supporting us by giving a `⭐ star` to the [SHRbharat/gfg_potd](https://github.com/SHRbharat/gfg_potd) repository.
 
 ![Total number of repository visitors](https://komarev.com/ghpvc/?username=gl01potdgfg&color=blue&&label=Visitors)
 ![](https://hit.yhype.me/github/profile?user_id=79409258)
