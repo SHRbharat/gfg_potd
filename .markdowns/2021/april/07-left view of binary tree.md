@@ -8,11 +8,11 @@ Given a Binary Tree, return Left view of it. Left view of a Binary Tree is set o
 Left view of following tree is 1 2 4 8.
 
           1
-       /     \
-     2        3
-   /     \    /    \
-  4     5   6    7
-   \
+        /    \
+       2       3
+     /   \    /  \
+    4     5  6    7
+    \
      8   
 
 ![](https://badgen.net/badge/Level/Easy/green)
@@ -41,20 +41,6 @@ The approach works by systematically traversing the binary tree in a level-order
 
 In summary, the algorithm uses a breadth-first search (BFS) strategy with a queue to traverse the binary tree level by level. By tracking and appending the leftmost node at each level, it constructs the left view of the binary tree in the result vector.
 
-
-### Time and Auxiliary Space Complexity
-
-- **Time Complexity            :**  `O(N)`, where N is the number of nodes in the binary tree.
-
-                    - The algorithm performs a level-order traversal of the binary tree using a queue.
-                    - In the worst case, each node is visited once.
-
-- **Auxiliary Space Complexity :**  `O(n)`, where n is the size of the queue.
-
-                    - The space complexity is determined by the queue used for the level-order traversal.
-                    - In the worst case, the queue may store all nodes at a particular level, and the maximum number of nodes at any level is the number of nodes in the last level of the binary tree (which can be roughly N/2 for a balanced binary tree).
-                    - Therefore, the auxiliary space complexity is O(N/2), but in big O notation, it simplifies to O(N) as we focus on the dominant term.
-  
 ### Code (C++)
 ```cpp
 vector<int> leftView(Node *root)
@@ -93,6 +79,20 @@ vector<int> leftView(Node *root)
    
 }
 ```
+
+### Time and Auxiliary Space Complexity
+
+- **Time Complexity            :**  `O(N)`, where N is the number of nodes in the binary tree.
+
+                    - The algorithm performs a level-order traversal of the binary tree using a queue.
+                    - In the worst case, each node is visited once.
+
+- **Auxiliary Space Complexity :**  `O(n)`, where n is the size of the queue.
+
+                    - The space complexity is determined by the queue used for the level-order traversal.
+                    - In the worst case, the queue may store all nodes at a particular level, and the maximum number of nodes at any level is the number of nodes in the last level of the binary tree (which can be roughly N/2 for a balanced binary tree).
+                    - Therefore, the auxiliary space complexity is O(N/2), but in big O notation, it simplifies to O(N) as we focus on the dominant term.
+
 ### Contribution and Support
 
 If you have a better solution or any queries / discussions , please visit our [discussion section](https://github.com/SHRbharat/gfg_potd/discussions). 
