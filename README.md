@@ -12,11 +12,11 @@ The problem can be approached using combinations and permutations.
 
 Consider the two scenarios:
 
-- 1.The last two posts have the same color:
-            In this case, you have `k` choices for the color of the last post, and the color of the second-to-last post is fixed. Therefore, there are `k` ways to paint the fence in this scenario.
+1.The last two posts have the same color:
+            - In this case, you have `k` choices for the color of the last post, and the color of the second-to-last post is fixed. Therefore, there are `k` ways to paint the fence in this scenario.
 
-- 2.The last two posts have different colors:
-        In this case, you have `(k-1)` choices for the color of the last post (to avoid having three consecutive posts with the same color), and the color of the second-to-last post can be any of the `k` colors. Therefore, there are `(k-1) * k` ways to paint the fence in this scenario.
+2.The last two posts have different colors:
+            - In this case, you have `(k-1)` choices for the color of the last post (to avoid having three consecutive posts with the same color), and the color of the second-to-last post can be any of the `k` colors. Therefore, there are `(k-1) * k` ways to paint the fence in this scenario.
 
 Now, you can combine these two scenarios:
 
