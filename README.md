@@ -1,47 +1,80 @@
 ## GFG Problem Of The Day
 
-### Today - 13 December, 2023
-### Ques  - [Consecutive 1's not allowed](https://www.geeksforgeeks.org/problems/consecutive-1s-not-allowed1912/1)
-The problem can be found at the following link: [Question Link]
-
-Given a positive integer N, count all possible distinct binary strings of length N such that there are no consecutive 1’s. Output your answer modulo 109 + 7.
-
+### Today - 14 December, 2023
+### Ques  - [Painting the Fence](https://www.geeksforgeeks.org/problems/painting-the-fence3727/1)
 ![](https://badgen.net/badge/Level/Medium/yellow)
 
+
+Given a fence with n posts and k colors, find out the number of ways of painting the fence so that not more than two consecutive posts have the same colors. Since the answer can be large return it modulo 109 + 7.
+
 ### My Approach
-To count the number of binary strings of length `n` such that there are no consecutive 1's, I use dynamic programming. 
-- I maintain a dynamic programming array `dp`, where `dp[i]` represents the count of valid binary strings of length `i`. 
-- The recurrence relation is `dp[i] = dp[i-1] + dp[i-2]`, as for each position, I can either append a '0' or '1' to the strings of length `i-1` and `i-2`. I use modular arithmetic to handle large numbers and avoid overflow.
+The problem can be approached using combinations and permutations.
+
+Consider the two scenarios:
+
+- 1.The last two posts have the same color:
+        In this case, you have `k` choices for the color of the last post, and the color of the second-to-last post is fixed. Therefore, there are `k` ways to paint the fence in this scenario.
+
+- 2.The last two posts have different colors:
+        In this case, you have `(k-1)` choices for the color of the last post (to avoid having three consecutive posts with the same color), and the color of the second-to-last post can be any of the `k` colors. Therefore, there are `(k-1) * k` ways to paint the fence in this scenario.
+
+Now, you can combine these two scenarios:
+
+The total number of ways to paint the fence without more than two consecutive posts having the same color is the sum of the ways in the above two scenarios.
+Using the permutation and combination concept, this can be expressed as follows:
+
+`Total Ways = Ways with Same Color + Ways with Different Colors`
+`Total Ways = k + (k−1)*k`
 
 ### Explain with example
-Let's take an example with `n = 4`.
+ Let's dry run the code for the input n = 3 and k = 2.
 
-- For `n = 1`, there are 2 strings: `"0"` and `"1"`.
-- For `n = 2`, there are 3 strings: `"00"`, `"01"`, and `"10"`.
-- For `n = 3`, there are 5 strings: `"000"`, `"001"`, `"010"`, `"100"`, and `"101"`.
-- For `n = 4` (the target), there are 8 strings: `"0000"`, `"0001"`, `"0010"`, `"0100"`, `"0101"`, `"1000"`, `"1001"`, and `"1010"`.
+1. Initialize variables:
+- `sameColor = 2` (number of ways to paint the first post with the same color)
+- `differentColor = 2` (number of ways to paint the first post with a different color)
+
+2. Iterate from i = 3 to n (3 in this case):
+- For i = 3:
+        > Save `differentColor` in a temporary variable (`temp = 2`)
+        > Update `differentColor` to be the sum of the  previous        `sameColor` and `differentColor`, multiplied by `k - 1`:
+            `differentColor = (2+2)*(2-1) = 4`
+        > Update `sameColor` to be the previous `differentColor`:
+            `sameColor = temp = 2`
+3. After the loop, calculate the total number of ways:
+    `totalWays = sameColor + differentColor = 2 + 4 = 6`
 
 ### Time and Auxiliary Space Complexity
 
-- **Time Complexity            :**  `O(N)`, where N is the size of the array.
-- **Auxiliary Space Complexity :**  `O(n)`, where n is the size of the dp array.
+- **Time Complexity            :**  `O(N)`, where N is the no. of posts
+- **Auxiliary Space Complexity :**  `O(1)`
 
 ### Code (C++)
 ```cpp
-class Solution {
-public:
-    int mod = 1e9 + 7;
+class Solution{
+    public:
+    long long countWays(int n, int k){
+        // code here
+        const int MOD = 1000000007;
 
-    long long countStrings(int n) {
-        vector<long long> dp(n + 1);
-        dp[0] = 1;
-        dp[1] = 2;
-
-        for (int i = 2; i <= n; ++i) {
-            dp[i] = (dp[i - 1] + dp[i - 2]) % mod;
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return k;
         }
 
-        return dp[n];
+        long long sameColor = k;
+        long long differentColor = (k - 1LL) * k % MOD;
+
+        for (int i = 3; i <= n; ++i) {
+            long long temp = differentColor;
+            differentColor = (sameColor + differentColor) * (k - 1LL) % MOD;
+            sameColor = temp;
+        }
+
+        long long totalWays = (sameColor + differentColor) % MOD;
+
+        return totalWays;
     }
 };
 ```
