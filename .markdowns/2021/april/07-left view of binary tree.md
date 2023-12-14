@@ -1,6 +1,6 @@
 ## GFG Problem Of The Day
 
-### Today - 07 April, 2021
+### Date - 07 April, 2021
 ### Ques  - [Left View of Binary Tree](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1)
 ![](https://badgen.net/badge/Level/Easy/green)
 
@@ -17,7 +17,7 @@ Left view of following tree is 1 2 4 8.
      8   
 
 
-### Approach
+### Approach Used
 The approach works by systematically traversing the binary tree in a level-order fashion, ensuring that at each level, the leftmost node is added to the result vector. Here's how it unfolds:
 
 1. **Initialization:**

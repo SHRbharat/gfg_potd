@@ -7,7 +7,7 @@
 
 Given a fence with n posts and k colors, find out the number of ways of painting the fence so that not more than two consecutive posts have the same colors. Since the answer can be large return it modulo 10^9 + 7.
 
-### My Approach
+### Approach Used
 The problem can be approached using combinations and permutations.
 
 Consider the two scenarios:
@@ -26,7 +26,7 @@ Using the permutation and combination concept, this can be expressed as follows:
 `Total Ways = Ways with Same Color + Ways with Different Colors`
 `Total Ways = k + (k−1)*k`
 
-### Explain with example
+### Example
  Let's dry run the code for the input n = 3 and k = 2.
 
 1. Initialize variables:
