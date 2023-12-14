@@ -89,3 +89,7 @@ If you find this solution helpful, consider supporting us by giving a `⭐ star`
 ![Total number of repository visitors](https://komarev.com/ghpvc/?username=gl01potdgfg&color=blue&&label=Visitors)
 ![](https://hit.yhype.me/github/profile?user_id=79409258)
 
+[![Total number of repository stars](https://img.shields.io/github/stars/SHRbharat/gfg_potd.svg)](https://github.com/SHRbharat/gfg_potd/stargazers)
+
+![GitHub views](https://img.shields.io/github/views/SHRbharat/gfg_potd.svg?style=flat)
+
