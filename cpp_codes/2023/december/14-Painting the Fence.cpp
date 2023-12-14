@@ -1,4 +1,8 @@
-
+/*
+Given a fence with n posts and k colors, find out the number of ways of painting
+ the fence so that not more than two consecutive posts have the same colors. 
+ Since the answer can be large return it modulo 109 + 7.
+*/
 //{ Driver Code Starts
 #include <bits/stdc++.h>
 #include<stdio.h>
