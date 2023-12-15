@@ -1,81 +1,51 @@
 ## GFG Problem Of The Day
 
-### Date - 14 December, 2023
-### Ques  - [Painting the Fence](https://www.geeksforgeeks.org/problems/painting-the-fence3727/1)
-![](https://badgen.net/badge/Level/Medium/yellow)
+### Date - 15 December, 2023
+### Ques  - [Reach the Nth point](https://www.geeksforgeeks.org/problems/reach-the-nth-point5433/1)
+![](https://badgen.net/badge/Level/Easy/green)
 
 
-Given a fence with n posts and k colors, find out the number of ways of painting the fence so that not more than two consecutive posts have the same colors. Since the answer can be large return it modulo 10^9 + 7.
+There are N points on the road, you can step ahead by 1 or 2 . If you start from a point 0, and can only move from point i to point i+1 after taking a step of length one, find the number of ways you can reach at point N. 
 
 ### Approach Used
-The problem can be approached using combinations and permutations.
+The problem can be approached using dynamic programming.
 
-Consider the two scenarios:
+- we can clearly observe that the the number of ways to obtain sum `n` is nothing but just the sum of ways to obtain `n-1`and `n-2`.
 
-**1.The last two posts have the same color :** 
->In this case, you have `k` choices for the color of the last post, and the color of the second-to-last post is fixed. Therefore, there are `k` ways to paint the fence in this scenario.
+- For example :
+    - n = 1 ; ways = 1  {base case}
+    - n = 2 ; ways = 2  {base case}
+    - n = 3 ; ways = 2 + 1 = 3
+    - n = 4 ; ways = 3 + 2 = 5
+    - n = 5 ; ways = 5 + 3 = 8
 
-**2.The last two posts have different colors:** 
->In this case, you have `(k-1)` choices for the color of the last post (to avoid having three consecutive posts with the same color), and the color of the second-to-last post can be any of the `k` colors. Therefore, there are `(k-1) * k` ways to paint the fence in this scenario.
-
-Now, you can combine these two scenarios:
-
-The total number of ways to paint the fence without more than two consecutive posts having the same color is the sum of the ways in the above two scenarios.
-Using the permutation and combination concept, this can be expressed as follows:
-
-`Total Ways = Ways with Same Color + Ways with Different Colors`
-`Total Ways = k + (k−1)*k`
-
-### Example
- Let's dry run the code for the input n = 3 and k = 2.
-
-1. Initialize variables:
-    - `sameColor = 2` (number of ways to paint the first post with the same color)
-    - `differentColor = 2` (number of ways to paint the first post with a different color)
-
-2. Iterate from i = 3 to n (3 in this case):
-    - For i = 3:
-        - Save `differentColor` in a temporary variable (`temp = 2`)
-        - Update `differentColor` to be the sum of the  previous        `sameColor` and `differentColor`, multiplied by `k - 1`:
-            `differentColor = (2+2)*(2-1) = 4`
-        - Update `sameColor` to be the previous `differentColor`:
-            `sameColor = temp = 2`
-3. After the loop, calculate the total number of ways:
-        - `totalWays = sameColor + differentColor = 2 + 4 = 6`
 
 ### Time and Auxiliary Space Complexity
 
-- **Time Complexity            :**  `O(N)`, where N is the no. of posts
-- **Auxiliary Space Complexity :**  `O(1)`
+- **Time Complexity            :**  `O(N)`, where N is the no. of size of dp vector (no of times the loop executes)
+- **Auxiliary Space Complexity :**  `O(n)` , where n is the size of dp vector
 
 ### Code (C++)
 ```cpp
 class Solution{
-    public:
-    long long countWays(int n, int k){
-        // code here
-        const int MOD = 1000000007;
+	public:
+		int nthPoint(int n){
+		    // Code here
+		    int mod = 1000000007;
+		    if (n == 1) {
+                return 1;
+            }
 
-        if (n == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return k;
-        }
+            vector<int> dp(n, 0);
+            dp[0] = 1;
+            dp[1] = 2;
 
-        long long sameColor = k;
-        long long differentColor = (k - 1LL) * k % MOD;
+            for (int i = 2; i < n; ++i) {
+                dp[i] = (dp[i - 1] + dp[i - 2]) % mod;
+            }
 
-        for (int i = 3; i <= n; ++i) {
-            long long temp = differentColor;
-            differentColor = (sameColor + differentColor) * (k - 1LL) % MOD;
-            sameColor = temp;
-        }
-
-        long long totalWays = (sameColor + differentColor) % MOD;
-
-        return totalWays;
-    }
+            return dp[n-1];
+		}
 };
 ```
 ### Contribution and Support
