@@ -30,7 +30,7 @@ Thus, the final output is 5.
 
 ### Time and Auxiliary Space Complexity
 
-- **Time Complexity            :**  `O(log(min(M, N)))`
+- **Time Complexity            :**  `O(log(max(M, N)))`
 - **Auxiliary Space Complexity :**  `O(1)` 
 
 ### Code (C++)
