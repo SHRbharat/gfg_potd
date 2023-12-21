@@ -5,8 +5,9 @@
 ![](https://badgen.net/badge/Level/Medium/yellow)
 
 There are N children standing in a line. Each child is assigned a rating value given in the integer array ratings.You are giving candies to these children subjected to the following requirements:
-    - Each child must have atleast one candy.
-    - Children with a higher rating than its neighbors get more candies than their neighbors.
+- Each child must have atleast one candy.
+- Children with a higher rating than its neighbors get more candies than their neighbors.
+
 Return the minimum number of candies you need to have to distribute. 
 
 ### Approach Used
